@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Faq = () => {
+const About = () => {
       return(
          <div>
             <p>About Us</p>
@@ -12,6 +12,6 @@ const Faq = () => {
                 journey!</p>
         </div>
 
-      );
+      )
   }
-export default Faq;
+export default About;

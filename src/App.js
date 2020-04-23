@@ -1,30 +1,31 @@
 import React from 'react';
-import {Router, Route, IndexRoute, IndexLink, Link} from "react-router";
+import Home from './component/Home';
+import About from './component/About';
+import Faq from './component/Faq';
+//import Main from './Main';
+import './css/style.css';
+import {BrowserRouter, Route, Switch, Link} from "react-router-dom";
 
-var App = React.createClass({
-  render: function() {
-    return (
 
-      <div id="menuwrapper">
-        <h1>&lt;Company Logo&gt;</h1>
-        <ul>
-          <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
-          <li className="dropdown"><Link to="/about" activeClassName="active">About</Link>
-              <div className="dropdown-content">
-                    <Link to="/mi1" activeClassName="active">Menu Item 1</Link>
-                    <Link to="/mi2" activeClassName="active">Menu Item 2</Link>
-              </div>
-          </li>
-          <li><Link to="/github" activeClassName="active">Github</Link></li>
-          <li><Link to="/contact" activeClassName="active">Contact</Link></li>
-          <li><Link to="/faq" activeClassName="active">FAQ</Link></li>
-        </ul>
-        <div className="content">
-            {this.props.children}
-        </div>
-      </div>
-    )
-  }
-});
+ function App(){
+   return(
+  <div id="menuwrapper">
+  <BrowserRouter>
+     <nav>
+      <ul>
+        <li><Link exact to="/" activeClassName="active">Home</Link></li>
+        <li><Link to = "/about" activeClassName="active" >About</Link></li>
+        <li><Link to ="/faq" activeClassName="active">Faq</Link></li>
+      </ul>
+      </nav>
+         <Switch>
+            <Route path="/" component = {Home} />
+            <Route path="/about" component = {About} />
+            <Route path="/faq" component = {Faq} />
+         </Switch>
+   </BrowserRouter>
+   </div>
+   );
+ }
 
 export default App;
